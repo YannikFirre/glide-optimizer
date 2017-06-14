@@ -6,6 +6,8 @@
 
 This manipulator uses ps/image-optimizer package to minify resources.
 
+Inspired by https://github.com/approached/laravel-image-optimizer
+
 ## Installation
 
 ```bash
