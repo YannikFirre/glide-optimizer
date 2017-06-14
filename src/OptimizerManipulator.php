@@ -5,10 +5,10 @@ namespace Infinityweb\Glide\Optimizer;
 use Intervention\Image\Image;
 use ImageOptimizer\OptimizerFactory;
 use League\Glide\Manipulators\BaseManipulator;
+use Psr\Log\LoggerInterface;
 
 class OptimizerManipulator extends BaseManipulator {
 
-    protected $dispatcher;
     protected $optimizerFactory = null;
     protected $config = [
         /*
@@ -21,29 +21,6 @@ class OptimizerManipulator extends BaseManipulator {
           |
          */
         'options'           => [
-//
-//        'optipng_bin' => '/usr/bin/optipng',
-//        'optipng_options' => ['-i0', '-o2', '-quiet'],
-//
-            'pngquant_bin'      => '/usr/bin/pngquant',
-            'pngquant_options'  => ['--force'],
-//
-//        'pngcrush_bin' => '/usr/bin/pngcrush',
-//        'pngcrush_options' => ['-reduce', '-q', '-ow'],
-//
-//        'pngout_bin' => '/usr/bin/pngout',
-//        'pngout_options' => ['-s3', '-q', '-y'],
-//
-            'gifsicle_bin'      => '/usr/bin/gifsicle',
-            'gifsicle_options'  => ['-b', '-O5'],
-            'jpegoptim_bin'     => '/usr/bin/jpegoptim',
-            'jpegoptim_options' => ['--strip-all'],
-//
-//        'jpegtran_bin' => '/usr/bin/jpegtran',
-//        'jpegtran_options' => ['-optimize', '-progressive'],
-//
-//        'advpng_bin' => '/usr/bin/advpng',
-//        'advpng_options' => ['-z', '-4', '-q'],
         ],
         /*
           |--------------------------------------------------------------------------
@@ -66,13 +43,13 @@ class OptimizerManipulator extends BaseManipulator {
      * Create Optimizer instance.
      * @param array $config 
      */
-    public function __construct(array $config = null) {
+    public function __construct(array $config = null, LoggerInterface $logger = null) {
 
         if ($config) {
             $this->config = $config + $this->options;
         }
 
-        $this->optimizerFactory = new OptimizerFactory();
+        $this->optimizerFactory = new OptimizerFactory($this->config['options'], $logger);
     }
 
     /**
@@ -82,7 +59,7 @@ class OptimizerManipulator extends BaseManipulator {
      */
     public function run(Image $image) {
 
-        $tmp = tempnam(sys_get_temp_dir(), 'GlideMinify');
+        $tmp = tempnam(sys_get_temp_dir(), 'GlideOptimizer');
 
         file_put_contents($tmp, $image->getEncoded());
 
