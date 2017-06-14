@@ -9,6 +9,12 @@ Inspired by https://github.com/approached/laravel-image-optimizer
 
 ## Installation
 
+- Recommend convert packages:
+```bash
+sudo apt-get install pngquant gifsicle jpegoptim
+```
+
+- Require this package with composer:
 ```bash
 composer require infinityweb/glide-optimizer
 ```
