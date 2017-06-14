@@ -1,0 +1,29 @@
+{
+    "name": "infinityweb/glide-optimizer",
+    "description": "An optimizer manipulator for Glide that uses ps/image-optimizer package.",
+    "keywords": [
+        "glide",
+        "image",
+        "optimizer"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/infinityweb/glide-optimizer",
+    "authors": [
+        {
+            "name": "Yannik Firre",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "league/glide": "^1.0.0",
+        "ps/image-optimizer": "^1.1.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Infinityweb\\Glide\\Optimizer\\": "src/"
+        }
+    }
+}
