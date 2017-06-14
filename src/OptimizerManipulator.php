@@ -63,15 +63,20 @@ class OptimizerManipulator extends BaseManipulator {
     ];
 
     /**
-     * Create Size instance.
-     * @param integer|null $maxImageSize Maximum image size in pixels.
+     * Create Optimizer instance.
+     * @param array $config 
      */
-    public function __construct() {
+    public function __construct(array $config = null) {
+
+        if ($config) {
+            $this->config = $config + $this->options;
+        }
+
         $this->optimizerFactory = new OptimizerFactory();
     }
 
     /**
-     * Perform size image manipulation.
+     * Perform optimize image.
      * @param  Image $image The source image.
      * @return Image The manipulated image.
      */

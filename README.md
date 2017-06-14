@@ -1,6 +1,5 @@
 # Glide Optimizer Manipulator
 
-[![Author](http://img.shields.io/badge/author-@yannikfirre-blue.svg?style=flat-square)](https://github.com/InfinityWebMe)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Packagist Version](https://img.shields.io/packagist/v/infinityweb/glide-optimizer.svg?style=flat-square)](https://packagist.org/packages/infinityweb/glide-optimizer)
 
