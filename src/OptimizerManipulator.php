@@ -43,11 +43,10 @@ class OptimizerManipulator extends BaseManipulator {
      * Create Optimizer instance.
      * @param array $config 
      */
-    public function __construct(array $config = null, LoggerInterface $logger = null) {
+    public function __construct(array $config = [], LoggerInterface $logger = null) {
 
-        if ($config) {
-            $this->config = $config + $this->options;
-        }
+        $this->config['options'] = array_merge($this->config['options'],$config);
+
 
         $this->optimizerFactory = new OptimizerFactory($this->config['options'], $logger);
     }
