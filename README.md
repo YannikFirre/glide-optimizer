@@ -22,26 +22,13 @@ composer require infinityweb/glide-optimizer
 ## Usage
 
 ```php
+$server = League\Glide\ServerFactory::create([
+    'source' => 'path/to/source/folder',
+    'cache' => 'path/to/cache/folder',
+]);
 
-    use League\Glide\Responses\SymfonyResponseFactory;
-    use League\Flysystem\Filesystem;
+$manipulators = $server->getApi()->getManipulators();
+$manipulators[] = new Infinityweb\Glide\Optimizer\OptimizerManipulator();
 
-    $cache = new Filesystem('cache/');
-    $source = new Filesystem('source/');
-
-    $imageManager = new Intervention\Image\ImageManager([
-        'driver' => 'imagick',
-    ]);
-
-    $manipulators = [
-        new League\Glide\Manipulators\Size(2000 * 2000),
-        new League\Glide\Manipulators\Encode(),
-        new Infinityweb\Glide\Optimizer\OptimizerManipulator(),
-    ];
-
-    // Setup Glide server
-    $server = new League\Glide\Server(
-            $source, $cache, new League\Glide\Api\Api($imageManager, $manipulators)
-    );
-
+$server->getApi()->setManipulators($manipulators);
 ```
