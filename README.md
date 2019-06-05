@@ -34,4 +34,4 @@ $server->getApi()->setManipulators($manipulators);
 ```
 
 
-For better optimization use Imageick driver.
+For better optimization use imagick driver.
