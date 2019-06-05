@@ -32,3 +32,6 @@ $manipulators[] = new Infinityweb\Glide\Optimizer\OptimizerManipulator();
 
 $server->getApi()->setManipulators($manipulators);
 ```
+
+
+For better optimization use Imageick driver.
