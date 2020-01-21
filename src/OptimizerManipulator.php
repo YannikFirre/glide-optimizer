@@ -7,7 +7,7 @@ use Intervention\Image\Image;
 use League\Glide\Manipulators\BaseManipulator;
 use Psr\Log\LoggerInterface;
 
-/**'
+/**
  * Class OptimizerManipulator
  * @package Infinityweb\Glide\Optimizer
  */
