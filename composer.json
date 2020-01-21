@@ -18,7 +18,7 @@
     "require": {
         "league/glide": "^1.0.0",
         "psr/log": "1.0.*",
-        "ps/image-optimizer": "^1.1.0"
+        "ps/image-optimizer": "^2.0.2"
     },
     "require-dev": {
     },
