@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "league/glide": "^1.5",
+        "league/glide": "^1.5 || ^2.0",
         "psr/log": "^1.1",
         "ps/image-optimizer": "^2.0"
     },
